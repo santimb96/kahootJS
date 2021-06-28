@@ -1,0 +1,52 @@
+body{
+    background: #810eff;
+    font-family: Arial, monospace;
+    text-align: center;
+}
+
+#cuerpo{
+    width: 100%;
+    /*
+    con display:flex tenemos control de la posición acerca de todos los elementos
+     */
+    display: flex;
+    /*
+    los elementos en columna
+     */
+    flex-direction: column;
+    align-items: center;
+}
+
+#cuerpo div, #cuerpo ul{
+    width: 50%;
+    max-width: 300px;
+}
+ul{
+    padding: 0px;
+}
+#titulo{
+    font-size: 20px;
+    font-weight: bold;
+    background: #ffb800;
+    padding: 10px;
+}
+
+.opciones{
+    list-style-type: none;
+    margin-bottom: 4px;
+    padding: 10px;
+    background-color: #fff400;
+}
+
+.opciones:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#resultado{
+    font-weight: bold;
+}
+
+#puntuacion, #resultado{
+    color: white;
+}

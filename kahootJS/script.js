@@ -1,4 +1,4 @@
-let pregunta = [{
+ const pregunta = [{
     titulo: 'gato',
     alternativas: ['cat', 'dog', 'fish', 'rinoseronte'],
     correcta: 0
@@ -63,8 +63,10 @@ let app = {
         if (preguntaActual.correcta === seleccionado) {
             console.log("bien");
             this.puntuacion++;
+            this.mostrarResultado(true);
         } else {
             console.log("mal");
+            this.mostrarResultado(false);
         }
         /**
          * actualizamos la puntuación cada vez que se responda algo
@@ -89,8 +91,25 @@ let app = {
     actualizarStats: function(){
         let puntuacionDiv = document.getElementById('puntuacion');
         puntuacionDiv.textContent=`Tu puntuación es: ${this.puntuacion}`;
-    }
+    },
+    mostrarResultado: function(esCorrecta){
+        let resultadoDiv = document.getElementById('resultado');
+        let resultado;
+        if(esCorrecta){
+            resultado = 'Es correcto!';
+        }else{
+            let preguntaActual = pregunta[this.posicionActual];
+            /**
+             *
+             * @type {number|*} se obtiene, de la pregunta actual, la posición de la respuesta correcta
+             */
+            let respuestaCorrecta = preguntaActual.correcta;
 
+            let textoCorrecta = preguntaActual.alternativas[respuestaCorrecta];
+            resultado= `Incorrecta! Respuesta correcta: ${textoCorrecta}`;
+        }
+        resultadoDiv.textContent=resultado;
+    }
 };
 
 app.start();
