@@ -111,5 +111,4 @@ let app = {
         resultadoDiv.textContent=resultado;
     }
 };
-
 app.start();
